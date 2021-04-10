@@ -1,7 +1,6 @@
 package com.stock.iposchedule.service;
 
 import com.stock.iposchedule.dto.IPOinfo;
-import javafx.scene.chart.CategoryAxis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +19,7 @@ public class AlarmService {
     ChatService chatService;
 
     Calendar cal = Calendar.getInstance();
+    Calendar resetCal = Calendar.getInstance();
     SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd");
 
     public void alarm() {
@@ -66,8 +66,10 @@ public class AlarmService {
                     sendList.add(crawlList.get(i));
                 }
             }
-            System.out.println(sendList);
         }
+
+        // 캘린더 원래시간으로 초기화
+        cal.setTime(resetCal.getTime());
 
         if (sendList.size() == 0) {
             //없으면 종료
