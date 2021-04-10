@@ -1,0 +1,13 @@
+package com.stock.iposchedule;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class IpoScheduleApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(IpoScheduleApplication.class, args);
+    }
+
+}
