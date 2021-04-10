@@ -22,12 +22,15 @@ public class CrawlService {
             for (Element content : contents) {
                 IPOinfo ipoInfo = new IPOinfo();
                 Elements tdContents = content.select("td");
+                if(tdContents.get(5).text().contains("대신") ||tdContents.get(5).text().contains("미래에셋")
+                        ||tdContents.get(5).text().contains("한국투자")||tdContents.get(5).text().contains("NH")) {
                 ipoInfo.setCompany(tdContents.get(0).text());
                 ipoInfo.setDate(tdContents.get(1).text());
                 ipoInfo.setFinalPrice(tdContents.get(2).text());
                 ipoInfo.setHopePrice(tdContents.get(3).text());
                 ipoInfo.setStockCompanys(tdContents.get(5).text());
                 ipoInfoList.add(ipoInfo);
+                }
             }
 
         } catch (IOException e) {
