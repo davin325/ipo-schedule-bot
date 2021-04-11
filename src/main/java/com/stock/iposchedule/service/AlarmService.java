@@ -86,7 +86,7 @@ public class AlarmService {
         int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
         String today = "";
         switch (dayOfWeek) {
-            case 7:
+            case 1:
                 today = "일요일";
                 break;
 //            case 7:
