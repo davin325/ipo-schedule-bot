@@ -18,12 +18,10 @@ public class AlarmService {
     @Autowired
     ChatService chatService;
 
-    Calendar cal = Calendar.getInstance();
-    Calendar resetCal = Calendar.getInstance();
     SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd");
 
     public void alarm() {
-        //List<IPOinfo> crawlList = crawlService.runCrawling();
+        Calendar cal = Calendar.getInstance();
         List<IPOinfo> sendList = new ArrayList<>();
 
         ////////////
@@ -56,7 +54,7 @@ public class AlarmService {
                 }
 
             }
-            System.out.println(sendList);
+
 
         } else if ("평일".equals(today)) {
             //날짜 ~기준으로 쪼갠다.
@@ -67,9 +65,6 @@ public class AlarmService {
                 }
             }
         }
-
-        // 캘린더 원래시간으로 초기화
-        cal.setTime(resetCal.getTime());
 
         if (sendList.size() == 0) {
             //없으면 종료
@@ -83,6 +78,7 @@ public class AlarmService {
     }
 
     private String today() {
+        Calendar cal = Calendar.getInstance();
         int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
         String today = "";
         switch (dayOfWeek) {

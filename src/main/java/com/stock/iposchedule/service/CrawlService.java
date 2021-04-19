@@ -23,7 +23,8 @@ public class CrawlService {
                 IPOinfo ipoInfo = new IPOinfo();
                 Elements tdContents = content.select("td");
                 if(tdContents.get(5).text().contains("대신") ||tdContents.get(5).text().contains("미래에셋")
-                        ||tdContents.get(5).text().contains("한국투자")||tdContents.get(5).text().contains("NH")) {
+                        ||tdContents.get(5).text().contains("한국투자")||tdContents.get(5).text().contains("NH")||tdContents.get(5).text().contains("삼성")
+                        ||tdContents.get(5).text().contains("하나금융")||tdContents.get(5).text().contains("KB")) {
                 ipoInfo.setCompany(tdContents.get(0).text());
                 ipoInfo.setDate(tdContents.get(1).text());
                 ipoInfo.setFinalPrice(tdContents.get(2).text());
